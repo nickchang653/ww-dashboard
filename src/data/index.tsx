@@ -7,6 +7,6 @@ export const DEFAULT_INPUTS: any = {
     sp_rate: 100,
     wd_money: 80000,
     in_par: 80,
-    cap_rate: 20,
+    cap_rate: 25,
     bonus: 12,
 };

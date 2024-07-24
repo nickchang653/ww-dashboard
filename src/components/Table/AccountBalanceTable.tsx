@@ -233,59 +233,6 @@ export function AccountBalanceTable() {
                             {!!avgGrowth.sn ? avgGrowth.sn.toFixed(2) : 0.0}%
                         </TableCell>
                     </TableRow>
-                    <TableRow key={"avg-row"} className="font-extrabold">
-                        <TableCell
-                            rowSpan={1}
-                            colSpan={3}
-                            className="text-center"
-                        ></TableCell>
-                        <TableCell className="bg-[#ec732a1a]">
-                            Cap Rate
-                        </TableCell>
-                        <TableCell
-                            className="bg-[#ec732a1a] text-center"
-                            colSpan={2}
-                        >
-                            {!!earningsCapRate.sp
-                                ? earningsCapRate.sp.toFixed(2)
-                                : 0.0}
-                            %
-                        </TableCell>
-                        <TableCell className="bg-[#f4ecfc]">Cap Rate</TableCell>
-                        <TableCell
-                            className="bg-[#f4ecfc] text-center"
-                            colSpan={2}
-                        >
-                            {!!earningsCapRate.inPar
-                                ? earningsCapRate.inPar.toFixed(2)
-                                : 0.0}{" "}
-                            %
-                        </TableCell>
-                        <TableCell className="bg-[#8cc44f1a]">
-                            Cap Rate
-                        </TableCell>
-                        <TableCell
-                            className="bg-[#8cc44f1a] text-center"
-                            colSpan={2}
-                        >
-                            {!!earningsCapRate.inParBonus
-                                ? earningsCapRate.inParBonus.toFixed(2)
-                                : 0.0}{" "}
-                            %
-                        </TableCell>
-                        <TableCell className="bg-[#3b82f61a]">
-                            Cap Rate
-                        </TableCell>
-                        <TableCell
-                            className="bg-[#3b82f61a] text-center"
-                            colSpan={2}
-                        >
-                            {!!earningsCapRate.sn
-                                ? earningsCapRate.sn.toFixed(2)
-                                : 0.0}
-                            %
-                        </TableCell>
-                    </TableRow>
                 </TableFoot>
             </Table>
         </Card>
