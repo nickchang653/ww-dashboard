@@ -1,0 +1,602 @@
+[
+    {
+        "year": 1999,
+        "Age": 65,
+        "S&P 500": {
+            "Account Balance":1000000,
+            "Growth": 19.53,
+            "Net Growth": 18.53,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":1000000,
+            "Growth": 15.62,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":1000000,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1000000,
+            "Growth": 12.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2000,
+        "Age": 66,
+        "S&P 500": {
+            "Account Balance":1105300,
+            "Growth": -10.14,
+            "Net Growth": -11.14,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":1076240,
+            "Growth": 0.00,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":1040000,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1040000,
+            "Growth": 12.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2001,
+        "Age": 67,
+        "S&P 500": {
+            "Account Balance":902170,
+            "Growth": -13.04,
+            "Net Growth": -14.04,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":996240,
+            "Growth": 0.00,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":1084800,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1080000,
+            "Growth": 0.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2002,
+        "Age": 68,
+        "S&P 500": {
+            "Account Balance":695505,
+            "Growth": -23.37,
+            "Net Growth": -24.37,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":916240,
+            "Growth": 0.00,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":1134976,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1000000,
+            "Growth": 12.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2003,
+        "Age": 69,
+        "S&P 500": {
+            "Account Balance":446010,
+            "Growth": 26.38,
+            "Net Growth": 25.38,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":836240,
+            "Growth": 21.1,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":1191173,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1040000,
+            "Growth": 12.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2004,
+        "Age": 70,
+        "S&P 500": {
+            "Account Balance":479208,
+            "Growth": 8.99,
+            "Net Growth": 7.99,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":932720,
+            "Growth": 7.19,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":1254114,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1080000,
+            "Growth": 0.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2005,
+        "Age": 71,
+        "S&P 500": {
+            "Account Balance":437497,
+            "Growth": 3.00,
+            "Net Growth": 2.00,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":919801,
+            "Growth": 2.40,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":1324608,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1000000,
+            "Growth": 12.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2006,
+        "Age": 72,
+        "S&P 500": {
+            "Account Balance":366246,
+            "Growth": 13.62,
+            "Net Growth": 12.62,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":861877,
+            "Growth": 10.90,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":1403560,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1040000,
+            "Growth": 12.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2007,
+        "Age": 73,
+        "S&P 500": {
+            "Account Balance":332467,
+            "Growth": 3.53,
+            "Net Growth": 2.53,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":875787,
+            "Growth": 2.82,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":1491988,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1080000,
+            "Growth": 0,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2008,
+        "Age": 74,
+        "S&P 500": {
+            "Account Balance":260878,
+            "Growth": -38.49,
+            "Net Growth": -39.49,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":820519,
+            "Growth": 0,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":1591026,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1000000,
+            "Growth": 12.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2009,
+        "Age": 75,
+        "S&P 500": {
+            "Account Balance":77857,
+            "Growth": 23.45,
+            "Net Growth": 22.45,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":740519,
+            "Growth": 18.76,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":1707949,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1040000,
+            "Growth": 12.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2010,
+        "Age": 76,
+        "S&P 500": {
+            "Account Balance":15336,
+            "Growth": 12.78,
+            "Net Growth": 11.78,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":799440,
+            "Growth": 10.22,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":1826183,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1080000,
+            "Growth": 0.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2011,
+        "Age": 77,
+        "S&P 500": {
+            "Account Balance":-62857,
+            "Growth": 0.00,
+            "Net Growth": -1.00,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":801175,
+            "Growth": 0,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":1965325,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1000000,
+            "Growth": 12.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2012,
+        "Age": 78,
+        "S&P 500": {
+            "Account Balance":-142228,
+            "Growth": 13.41,
+            "Net Growth": 13.41,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":721175,
+            "Growth": 10.73,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":2121164,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1040000,
+            "Growth": 12.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2013,
+        "Age": 79,
+        "S&P 500": {
+            "Account Balance":-239879,
+            "Growth": 29.60,
+            "Net Growth": 28.60,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":718543,
+            "Growth": 23.68,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":2295704,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1080000,
+            "Growth": 12.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2014,
+        "Age": 80,
+        "S&P 500": {
+            "Account Balance":-388484,
+            "Growth": 11.39,
+            "Net Growth": 10.39,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":808693,
+            "Growth": 9.11,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":2491189,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1000000,
+            "Growth": 12.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2015,
+        "Age": 81,
+        "S&P 500": {
+            "Account Balance":-508848,
+            "Growth": -0.73,
+            "Net Growth": -1.73,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":802382,
+            "Growth": 0.00,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":2710131,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1040000,
+            "Growth": 12.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2016,
+        "Age": 82,
+        "S&P 500": {
+            "Account Balance":-580045,
+            "Growth": 9.54,
+            "Net Growth": 8.54,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":722382,
+            "Growth": 7.63,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":2955347,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1080000,
+            "Growth": 0.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2017,
+        "Age": 83,
+        "S&P 500": {
+            "Account Balance":-709581,
+            "Growth": 19.42,
+            "Net Growth": 18.42,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":697515,
+            "Growth": 15.54,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":3229989,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1000000,
+            "Growth": 12.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2018,
+        "Age": 84,
+        "S&P 500": {
+            "Account Balance":-920285,
+            "Growth": -6.24,
+            "Net Growth": -7.24,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":725880,
+            "Growth": 0.00,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":3537857,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1040000,
+            "Growth": 12.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2019,
+        "Age": 85,
+        "S&P 500": {
+            "Account Balance":-933657,
+            "Growth": 28.88,
+            "Net Growth": 27.88,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":645880,
+            "Growth": 23.10,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":3882098,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1080000,
+            "Growth": 12.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2020,
+        "Age": 86,
+        "S&P 500": {
+            "Account Balance":-1273960,
+            "Growth": 16.26,
+            "Net Growth": 15.26,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":715104,
+            "Growth": 13.01,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":4267949,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1000000,
+            "Growth": 12.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2021,
+        "Age": 87,
+        "S&P 500": {
+            "Account Balance":-1548367,
+            "Growth": 26.89,
+            "Net Growth": 25.89,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":728124,
+            "Growth": 21.51,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":4700103,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1040000,
+            "Growth": 12.00,
+            "W/D":-80000
+        }
+    },
+    {
+        "year": 2022,
+        "Age": 88,
+        "S&P 500": {
+            "Account Balance":-2029239,
+            "Growth": 24.23,
+            "Net Growth": 23.23,
+            "W/D":-80000
+        },
+        "FIA + Index Par": {
+            "Account Balance":804758,
+            "Growth": 19.38,
+            "W/D":-80000
+        },
+        "FIA + Index Par + Bonus": {
+            "Account Balance":5184116,
+            "Growth": 12.00,
+            "W/D":-80000
+        },
+        "Struntured Notes": {
+            "Account Balance":1080000,
+            "Growth": 12.00,
+            "W/D":-80000
+        }
+    }
+]
