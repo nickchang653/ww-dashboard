@@ -39,7 +39,7 @@ export const welcomeEmailTemplate = (userName: string | null, userEmail: string 
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to RothReady, ${userName || 'User'}!</h1>
+        <h1>Welcome to Withdrawal Wizard, ${userName || 'User'}!</h1>
         <p>We're excited to have you on board.</p>
         <p>Here are your login details:</p>
         <ul>
@@ -48,7 +48,7 @@ export const welcomeEmailTemplate = (userName: string | null, userEmail: string 
         </ul>
         <p>If you have any questions or need assistance, feel free to reach out to us.</p>
         <p>Best regards,</p>
-        <p>RothReady</p>
+        <p>Withdrawal Wizard</p>
     </div>
     <div class="footer">
         <p>&copy; ${new Date().getFullYear()} RothReady. All rights reserved.</p>
@@ -163,7 +163,7 @@ export const roleAssignmentEmailTemplate = (userEmail: string | null, role: stri
         </ul>
         <p>If you have any questions or need assistance, feel free to reach out to us.</p>
         <p>Best regards,</p>
-        <p>RothReady</p>
+        <p>Withdrawal Wizard</p>
     </div>
     <div class="footer">
         <p>&copy; ${new Date().getFullYear()} RothReady. All rights reserved.</p>
@@ -207,7 +207,7 @@ export const welcomeEmailTemplateForInviteUser = (userEmail: string | null, user
 </head>
 <body>
     <div class="container">
-    <h1>Welcome to RothReady!</h1>
+    <h1>Welcome to Withdrawal Wizard!</h1>
         <p>We're excited to have you on board.</p>
         <p>Here are your login details:</p>
         <ul>
@@ -216,7 +216,7 @@ export const welcomeEmailTemplateForInviteUser = (userEmail: string | null, user
         </ul>
         <p>If you have any questions or need assistance, feel free to reach out to us.</p>
         <p>Best regards,</p>
-        <p>RothReady</p>
+        <p>Withdrawal Wizard</p>
     </div>
     <div class="footer">
         <p>&copy; ${new Date().getFullYear()} RothReady. All rights reserved.</p>

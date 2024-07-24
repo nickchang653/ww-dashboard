@@ -36,7 +36,7 @@ const DisclaimerModal = () => {
                             <div className="flex text-[12px] gap-1 mb-4">
                                 <span>© All</span>
                                 <Image
-                                    src="/images/Logo-01.png"
+                                    src="/images/logo-disclaimer.png"
                                     alt="logo"
                                     width={166}
                                     height={30}

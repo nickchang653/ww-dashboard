@@ -140,7 +140,7 @@ export const backendConfig = (): TypeInput => {
                                         to: userEmail
                                             ? userEmail
                                             : "abc@example.com",
-                                        subject: "Welcome To RothReady",
+                                        subject: "Welcome To Withdrawal Wizard",
                                         html: roleAssignmentEmailTemplate(
                                             userEmail || "no-reply@example.com",
                                             input.role
