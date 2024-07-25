@@ -62,18 +62,11 @@ export const backendConfig = (): TypeInput => {
                                     let emailField = formFields.find(
                                         (field) => field.id === "email"
                                     );
-                                    let passwordField = formFields.find(
-                                        (field) => field.id === "password"
-                                    );
                                     let userName = nameField
                                         ? nameField.value
                                         : null;
                                     let userEmail = emailField
                                         ? emailField.value
-                                        : null;
-
-                                    let userPassword = passwordField
-                                        ? passwordField.value
                                         : null;
 
                                     const { error } = await supabase
@@ -86,30 +79,56 @@ export const backendConfig = (): TypeInput => {
                                             },
                                         ]);
                                     if (error) console.error("error", error);
-                                    await sendMail({
-                                        to: userEmail
-                                            ? userEmail
-                                            : "abc@example.com",
-                                        subject:
-                                            "Welcome To The Withdrawal Wizard",
-                                        html: welcomeEmailTemplate(
-                                            userName || "user",
-                                            userEmail || "no-reply@example.com",
-                                            userPassword || "NaN"
-                                        ),
-                                    });
-                                    await sendMail({
-                                        to: process.env.NEXT_PUBLIC_ADMIN_EMAIL
-                                            ? process.env
-                                                  .NEXT_PUBLIC_ADMIN_EMAIL
-                                            : "abc@example.com",
-                                        subject: "New Withdrawal Wizard SignUp",
-                                        html: welcomeEmailTemplateToAdmin(
-                                            userName || "user",
-                                            userEmail || "no-reply@example.com",
-                                            userPassword || "NaN"
-                                        ),
-                                    });
+                                }
+                                return response;
+                            },
+                        };
+                    },
+                    functions: (originalImplementation) => {
+                        return {
+                            ...originalImplementation,
+                            signUp: async function (input) {
+                                const response =
+                                    await originalImplementation.signUp(input);
+                                if (response.status === "OK") {
+                                    setTimeout(async () => {
+                                        const { data, error } = await supabase
+                                            .from("users")
+                                            .select("name")
+                                            .eq("email", input.email);
+                                        const userName =
+                                            data?.length != 0 && data != null
+                                                ? data[0].name
+                                                : "User";
+                                        await sendMail({
+                                            to: input.email
+                                                ? input.email
+                                                : "abc@example.com",
+                                            subject:
+                                                "Welcome To The Withdrawal Wizard",
+                                            html: welcomeEmailTemplate(
+                                                userName || "user",
+                                                input.email ||
+                                                    "no-reply@example.com",
+                                                input.password || "NaN"
+                                            ),
+                                        });
+                                        await sendMail({
+                                            to: process.env
+                                                .NEXT_PUBLIC_ADMIN_EMAIL
+                                                ? process.env
+                                                      .NEXT_PUBLIC_ADMIN_EMAIL
+                                                : "abc@example.com",
+                                            subject:
+                                                "New Withdrawal Wizard SignUp",
+                                            html: welcomeEmailTemplateToAdmin(
+                                                userName || "user",
+                                                input.email ||
+                                                    "no-reply@example.com",
+                                                input.password || "NaN"
+                                            ),
+                                        });
+                                    }, 5000);
                                 }
                                 return response;
                             },
