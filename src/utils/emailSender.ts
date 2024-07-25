@@ -10,11 +10,18 @@ const sendMail = async (mailOptions: MailOptions): Promise<void> => {
     try {
         const transporter = nodemailer.createTransport({
             host: 'mail.privateemail.com',
-            port: 465,
+            port: 587,
+            secure: false, // use TLS
             auth: {
                 user: process.env.NEXT_PUBLIC_SUPPORT_EMAIL,
                 pass: process.env.NEXT_PUBLIC_SUPPORT_APP_PASSWORD,
-            }
+            },
+            tls: {
+                rejectUnauthorized: false, // Disable certificate validation (not recommended for production)
+            },
+            connectionTimeout: 10000, // 10 seconds
+            greetingTimeout: 5000, // 5 seconds
+            socketTimeout: 10000 // 10 seconds
         });
 
         let defaultMailOptions = {
