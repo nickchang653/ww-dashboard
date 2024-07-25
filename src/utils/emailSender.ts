@@ -16,9 +16,6 @@ const sendMail = async (mailOptions: MailOptions): Promise<void> => {
                 user: process.env.NEXT_PUBLIC_SUPPORT_EMAIL,
                 pass: process.env.NEXT_PUBLIC_SUPPORT_APP_PASSWORD,
             },
-            tls: {
-                rejectUnauthorized: false, // Disable certificate validation (not recommended for production)
-            },
             connectionTimeout: 10000, // 10 seconds
             greetingTimeout: 5000, // 5 seconds
             socketTimeout: 10000 // 10 seconds
