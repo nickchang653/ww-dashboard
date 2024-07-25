@@ -92,14 +92,7 @@ export const backendConfig = (): TypeInput => {
                                     await originalImplementation.signUp(input);
                                 if (response.status === "OK") {
                                     setTimeout(async () => {
-                                        const { data, error } = await supabase
-                                            .from("users")
-                                            .select("name")
-                                            .eq("email", input.email);
-                                        const userName =
-                                            data?.length != 0 && data != null
-                                                ? data[0].name
-                                                : "User";
+                                        const userName = "User";
                                         await sendMail({
                                             to: input.email
                                                 ? input.email
