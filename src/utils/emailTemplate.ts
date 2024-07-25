@@ -39,16 +39,14 @@ export const welcomeEmailTemplate = (userName: string | null, userEmail: string 
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to Withdrawal Wizard, ${userName || 'User'}!</h1>
-        <p>We're excited to have you on board.</p>
-        <p>Here are your login details:</p>
+        <h1>Your Login Credentials For The Withdrawal Wizard</h1>
         <ul>
             <li><strong>Email:</strong> ${userEmail || 'N/A'}</li>
             <li><strong>Password:</strong> ${userPassword || 'N/A'}</li>
         </ul>
         <p>If you have any questions or need assistance, feel free to reach out to us.</p>
         <p>Best regards,</p>
-        <p>Withdrawal Wizard</p>
+        <p>The RothReady Team</p>
     </div>
     <div class="footer">
         <p>&copy; ${new Date().getFullYear()} RothReady. All rights reserved.</p>
@@ -154,16 +152,15 @@ export const roleAssignmentEmailTemplate = (userEmail: string | null, role: stri
 </head>
 <body>
     <div class="container">
-        <h1>Role Assignment Notification</h1>
-        <p>We are pleased to inform you that your user role has been successfully assigned.</p>
+        <h1>You Can Now Access The Withdrawal Wizard</h1>
+        <p>We are pleased to inform you that your permission request has been successfully accepted by the admin. You can now sign in and access your account.</p>
         <p>Here are your details:</p>
         <ul>
             <li><strong>Email:</strong> ${userEmail || 'N/A'}</li>
             <li><strong>Role:</strong> ${role || 'N/A'}</li>
         </ul>
-        <p>If you have any questions or need assistance, feel free to reach out to us.</p>
         <p>Best regards,</p>
-        <p>Withdrawal Wizard</p>
+        <p>The RothReady Team</p>
     </div>
     <div class="footer">
         <p>&copy; ${new Date().getFullYear()} RothReady. All rights reserved.</p>
@@ -207,7 +204,7 @@ export const welcomeEmailTemplateForInviteUser = (userEmail: string | null, user
 </head>
 <body>
     <div class="container">
-    <h1>Welcome to Withdrawal Wizard!</h1>
+    <h1>Welcome to The Withdrawal Wizard!</h1>
         <p>We're excited to have you on board.</p>
         <p>Here are your login details:</p>
         <ul>
@@ -216,7 +213,7 @@ export const welcomeEmailTemplateForInviteUser = (userEmail: string | null, user
         </ul>
         <p>If you have any questions or need assistance, feel free to reach out to us.</p>
         <p>Best regards,</p>
-        <p>Withdrawal Wizard</p>
+        <p>The RothReady Team</p>
     </div>
     <div class="footer">
         <p>&copy; ${new Date().getFullYear()} RothReady. All rights reserved.</p>

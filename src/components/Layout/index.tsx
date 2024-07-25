@@ -19,11 +19,7 @@ const Layout = (props: LayoutType) => {
     );
 
     useEffect(() => {
-        // const noticeLocalModal = localStorage.getItem("notice-modal");
-        // if (!noticeLocalModal || noticeLocalModal == "") {
-        //     localStorage.setItem("notice-modal", "true");
         dispatch(setNoticeModal(true));
-        // }
     }, []);
 
     return (
@@ -39,8 +35,10 @@ const Layout = (props: LayoutType) => {
             {isNoticeModal && <NoticeModal />}
             {isDisclaimerModal && <DisclaimerModal />}
             <div
-                className={`absolute top-0 left-0 right-0 bottom-0 w-full h-fullflex pt-[calc(50vh-30px)] pl-[calc(50vw-30px)] justify-between ${
-                    isLoading ? "bg-white z-[100]" : "bg-transparent z-[-10]"
+                className={`fixed top-0 left-0 right-0 bottom-0 w-full h-fullflex pt-[calc(50vh-30px)] pl-[calc(50vw-30px)] justify-between ${
+                    isLoading
+                        ? "bg-white z-[10000000]"
+                        : "bg-transparent z-[-10]"
                 } duration-75`}
             >
                 <BounceLoader

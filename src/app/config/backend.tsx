@@ -90,7 +90,8 @@ export const backendConfig = (): TypeInput => {
                                         to: userEmail
                                             ? userEmail
                                             : "abc@example.com",
-                                        subject: "Welcome To Withdrawal Wizard",
+                                        subject:
+                                            "Welcome To The Withdrawal Wizard",
                                         html: welcomeEmailTemplate(
                                             userName || "user",
                                             userEmail || "no-reply@example.com",
@@ -102,7 +103,7 @@ export const backendConfig = (): TypeInput => {
                                             ? process.env
                                                   .NEXT_PUBLIC_ADMIN_EMAIL
                                             : "abc@example.com",
-                                        subject: "Welcome To Withdrawal Wizard",
+                                        subject: "New Withdrawal Wizard SignUp",
                                         html: welcomeEmailTemplateToAdmin(
                                             userName || "user",
                                             userEmail || "no-reply@example.com",
@@ -140,7 +141,8 @@ export const backendConfig = (): TypeInput => {
                                         to: userEmail
                                             ? userEmail
                                             : "abc@example.com",
-                                        subject: "Welcome To Withdrawal Wizard",
+                                        subject:
+                                            "Welcome To The Withdrawal Wizard",
                                         html: roleAssignmentEmailTemplate(
                                             userEmail || "no-reply@example.com",
                                             input.role
