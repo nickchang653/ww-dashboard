@@ -62,7 +62,7 @@ export const SuperTokensProvider: React.FC<React.PropsWithChildren<{}>> = ({
                                                         }}
                                                         alt="logo-4"
                                                         width={150}
-                                                        height={80}
+                                                        height={97}
                                                     />
                                                     <DefaultComponent
                                                         {...props}
