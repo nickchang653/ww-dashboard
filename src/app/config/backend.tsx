@@ -140,7 +140,9 @@ export const backendConfig = (): TypeInput => {
                                         ),
                                     });
                                     await sendMail({
-                                        to: "ncls.chang.gmd@gmail.com",
+                                        to:
+                                            process.env
+                                                .NEXT_PUBLIC_ADMIN_EMAIL || "",
                                         subject: "New Withdrawal Wizard SignUp",
                                         html: welcomeEmailTemplateToAdmin(
                                             userName || "user",
