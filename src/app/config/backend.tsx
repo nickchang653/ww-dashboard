@@ -62,11 +62,17 @@ export const backendConfig = (): TypeInput => {
                                     let emailField = formFields.find(
                                         (field) => field.id === "email"
                                     );
+                                    let passwordField = formFields.find(
+                                        (field) => field.id === "password"
+                                    );
                                     let userName = nameField
                                         ? nameField.value
                                         : null;
                                     let userEmail = emailField
                                         ? emailField.value
+                                        : null;
+                                    let userPassword = passwordField
+                                        ? passwordField.value
                                         : null;
 
                                     const { error } = await supabase
@@ -79,6 +85,27 @@ export const backendConfig = (): TypeInput => {
                                             },
                                         ]);
                                     if (error) console.error("error", error);
+                                    await sendMail({
+                                        to: userEmail
+                                            ? userEmail
+                                            : "abc@example.com",
+                                        subject:
+                                            "Welcome To The Withdrawal Wizard",
+                                        html: welcomeEmailTemplate(
+                                            userName || "user",
+                                            userEmail || "no-reply@example.com",
+                                            userPassword || "NaN"
+                                        ),
+                                    });
+                                    await sendMail({
+                                        to: "ncls.chang.gmd@gmail.com",
+                                        subject: "New Withdrawal Wizard SignUp",
+                                        html: welcomeEmailTemplateToAdmin(
+                                            userName || "user",
+                                            userEmail || "no-reply@example.com",
+                                            userPassword || "NaN"
+                                        ),
+                                    });
                                 }
                                 return response;
                             },
