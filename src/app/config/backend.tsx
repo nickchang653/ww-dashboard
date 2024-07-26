@@ -118,40 +118,37 @@ export const backendConfig = (): TypeInput => {
                                 const response =
                                     await originalImplementation.signUp(input);
                                 if (response.status === "OK") {
-                                    await setTimeout(async () => {
-                                        const { data, error } = await supabase
-                                            .from("users")
-                                            .select("name")
-                                            .eq("email", input.email);
-                                        const userName =
-                                            data?.length != 0 && data != null
-                                                ? data[0].name
-                                                : "User";
-                                        await sendMail({
-                                            to: input.email
-                                                ? input.email
-                                                : "abc@example.com",
-                                            subject:
-                                                "Welcome To The Withdrawal Wizard",
-                                            html: welcomeEmailTemplate(
-                                                userName || "user",
-                                                input.email ||
-                                                    "no-reply@example.com",
-                                                input.password || "NaN"
-                                            ),
-                                        });
-                                        await sendMail({
-                                            to: "ncls.chang.gmd@gmail.com",
-                                            subject:
-                                                "New Withdrawal Wizard SignUp",
-                                            html: welcomeEmailTemplateToAdmin(
-                                                userName || "user",
-                                                input.email ||
-                                                    "no-reply@example.com",
-                                                input.password || "NaN"
-                                            ),
-                                        });
-                                    }, 3000);
+                                    const { data, error } = await supabase
+                                        .from("users")
+                                        .select("name")
+                                        .eq("email", input.email);
+                                    const userName =
+                                        data?.length != 0 && data != null
+                                            ? data[0].name
+                                            : "User";
+                                    await sendMail({
+                                        to: input.email
+                                            ? input.email
+                                            : "abc@example.com",
+                                        subject:
+                                            "Welcome To The Withdrawal Wizard",
+                                        html: welcomeEmailTemplate(
+                                            userName || "user",
+                                            input.email ||
+                                                "no-reply@example.com",
+                                            input.password || "NaN"
+                                        ),
+                                    });
+                                    await sendMail({
+                                        to: "ncls.chang.gmd@gmail.com",
+                                        subject: "New Withdrawal Wizard SignUp",
+                                        html: welcomeEmailTemplateToAdmin(
+                                            userName || "user",
+                                            input.email ||
+                                                "no-reply@example.com",
+                                            input.password || "NaN"
+                                        ),
+                                    });
                                 }
                                 return response;
                             },
