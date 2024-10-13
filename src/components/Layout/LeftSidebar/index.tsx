@@ -87,6 +87,7 @@ const LeftSidebar = () => {
     const [userName, setUserName] = useState("");
 
     useEffect(() => {
+        console.log(userInfo);
         (async () => {
             if (
                 userInfo &&
@@ -97,6 +98,7 @@ const LeftSidebar = () => {
                     .from("users")
                     .select("*")
                     .eq("email", userInfo.userInfo.emails[0]);
+                console.log(data, error);
                 if (data != null && data.length != 0) {
                     setUserName(data[0].name);
                 }
