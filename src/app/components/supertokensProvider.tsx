@@ -229,7 +229,7 @@ export const SuperTokensProvider: React.FC<React.PropsWithChildren<{}>> = ({
                   <div className="2xl:max-w-52 md:max-w-44 max-w-40 w-full mb-1">
                     <img
                       className="w-full"
-                      src="/images/copyright-img.svg"
+                      src="/images/logo-disclaimer.png"
                       alt="copyright logo"
                     />
                   </div>
