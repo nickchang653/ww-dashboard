@@ -27,7 +27,7 @@ export type FinancialDataProps = {
   "S&P 500": AccountDetailsProps;
   "FIA + Index Par": AccountDetailsProps;
   "FIA + Index Par + Bonus": AccountDetailsProps;
-  "Struntured Notes": AccountDetailsProps;
+  "Structured Notes": AccountDetailsProps;
 }
 
 export type CardType = {

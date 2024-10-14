@@ -210,7 +210,7 @@ export const SuperTokensProvider: React.FC<React.PropsWithChildren<{}>> = ({
                                       lineHeight: "16px",
                                     }}
                                   >
-                                    Forgot password?
+                                    Forgot Password?
                                   </a>
                                 </div>
                               ) : null}
@@ -229,7 +229,7 @@ export const SuperTokensProvider: React.FC<React.PropsWithChildren<{}>> = ({
                   <div className="2xl:max-w-52 md:max-w-44 max-w-40 w-full mb-1">
                     <img
                       className="w-full"
-                      src="/images/logo-disclaimer.png"
+                      src="/images/logo-grey-white.png"
                       alt="copyright logo"
                     />
                   </div>
