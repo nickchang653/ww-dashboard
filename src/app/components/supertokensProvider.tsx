@@ -225,7 +225,7 @@ export const SuperTokensProvider: React.FC<React.PropsWithChildren<{}>> = ({
                     </EmailPasswordComponentsOverrideProvider>
                   </AuthRecipeComponentsOverrideContextProvider>
                 </Card>
-                <div className="flex flex-col items-center justify-center text-center absolute bottom-10">
+                <div className="flex flex-col items-center justify-center text-center absolute bottom-24">
                   <div className="2xl:max-w-52 md:max-w-44 max-w-40 w-full mb-1">
                     <img
                       className="w-full"
