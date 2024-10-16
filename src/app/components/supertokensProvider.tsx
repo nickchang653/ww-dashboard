@@ -79,7 +79,7 @@ export const SuperTokensProvider: React.FC<React.PropsWithChildren<{}>> = ({
                   </span>
                 </p>
               </div>
-              <div className="flex flex-col 2xl:max-w-lg lg:max-w-md md:max-w-[420px] sm:max-w-md md:mx-0 mx-auto w-full md:pl-2 h-full justify-center items-center relative">
+              <div className="flex flex-col 2xl:max-w-lg lg:max-w-md md:max-w-[420px] sm:max-w-md md:mx-0 mx-auto w-full md:pl-2 h-full justify-center items-center relative pt-20">
                 <Card className="!p-0 !rounded-[0px] shadow-xl">
                   <AuthRecipeComponentsOverrideContextProvider
                     components={{
@@ -225,7 +225,7 @@ export const SuperTokensProvider: React.FC<React.PropsWithChildren<{}>> = ({
                     </EmailPasswordComponentsOverrideProvider>
                   </AuthRecipeComponentsOverrideContextProvider>
                 </Card>
-                <div className="flex flex-col items-center justify-center text-center absolute bottom-24">
+                <div className="flex flex-col items-center justify-center text-center mt-10">
                   <div className="2xl:max-w-52 md:max-w-44 max-w-40 w-full mb-1">
                     <img
                       className="w-full"
