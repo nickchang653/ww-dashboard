@@ -9,6 +9,7 @@ import {
 import { Switch } from "@tremor/react";
 import React from "react";
 import { useDispatch } from "react-redux";
+import { Tooltip } from "../Tooltip";
 
 const Card = (props: CardType) => {
     const dispatch = useDispatch();
@@ -83,8 +84,9 @@ const Card = (props: CardType) => {
                             )} */}
                             {props.editable == "true" && (
                             <div className="flex items-center justify-center gap-2" onClick={() => dispatch(setIsIndexPar(!isIndexPar))}>
-                                <Switch checked={isIndexPar} id="r2" />
-                                {/* <Tooltip side="bottom" content="Show IndexPar"> */}
+                                <Tooltip side="bottom" content="Show Index Par">
+                                    <Switch checked={isIndexPar} id="r2" />
+                                </Tooltip>
                             </div>
                             )}
                         </div>
