@@ -9,12 +9,16 @@ const dataFormatter = (number: number) =>
     Intl.NumberFormat("us").format(number).toString() + "%";
 
 export function BarChartHero() {
-    const { avgGrowth } = useAppSelector((state) => state.calc);
-    const chart_data = [
+    const { avgGrowth, isIndexPar } = useAppSelector((state) => state.calc);
+    const chart_data = isIndexPar ? [
         {
             name: "S&P 500",
             "S&P 500": Math.round(avgGrowth.sp * 100) / 100,
         },
+        // {
+        //     name: "FRR",
+        //     SN: Math.round(avgGrowth.sn * 100) / 100,
+        // },
         {
             name: "FIA",
             FIA: Math.round(avgGrowth.inPar * 100) / 100,
@@ -22,11 +26,16 @@ export function BarChartHero() {
         {
             name: "FIA+B",
             "FIA+B": Math.round(avgGrowth.inParBonus * 100) / 100,
+        }
+    ]: [
+        {
+            name: "S&P 500",
+            "S&P 500": Math.round(avgGrowth.sp * 100) / 100,
         },
         {
-            name: "SN",
-            SN: Math.round(avgGrowth.sn * 100) / 100,
-        },
+            name: "FRR",
+            FRR: Math.round(avgGrowth.sn * 100) / 100,
+        }
     ];
     return (
         <Card title="Avg RoR Cap">
@@ -34,8 +43,8 @@ export function BarChartHero() {
                 className="mt-6"
                 data={chart_data}
                 index="name"
-                categories={["S&P 500", "FIA", "FIA+B", "SN"]}
-                colors={["orange", "purple", "green", "blue"]}
+                categories={isIndexPar ? ["S&P 500", "FIA", "FIA+B"]: ["S&P 500", "FRR"]}
+                colors={isIndexPar ? ["orange", "purple", "green"]: ["orange", "blue"]}
                 valueFormatter={dataFormatter}
                 yAxisWidth={36}
             />

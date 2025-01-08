@@ -34,7 +34,7 @@ import { getInitials } from "@/utils";
 
 const LeftSidebar = () => {
     const dispatch = useAppDispatch();
-    const { snGrowth, calcAction } = useAppSelector((state) => state.calc);
+    const { snGrowth, calcAction, isIndexPar } = useAppSelector((state) => state.calc);
     const { userInfo } = useAppSelector((state) => state.auth);
 
     // State for form inputs and errors
@@ -66,6 +66,8 @@ const LeftSidebar = () => {
     );
     const [snRate, setSnRate] = useState<number>(DEFAULT_INPUTS.sp_rate);
     const [snWdMoney, setSnWdMoney] = useState<number>(DEFAULT_INPUTS.wd_money);
+    const [fixedRate, setFixedRate] = useState(DEFAULT_INPUTS.fixed_rate);
+
 
     // State for validation errors
     const [investmentError, setInvestmentError] = useState("");
@@ -84,6 +86,7 @@ const LeftSidebar = () => {
     const [inParBonusWdMoneyError, setInParBonusWdMoneyError] = useState("");
     const [snRateError, setSnRateError] = useState("");
     const [snWdMoneyError, setSnWdMoneyError] = useState("");
+    const [fixedRateError, setFixedRateError] = useState("");
     const [userName, setUserName] = useState("");
 
     useEffect(() => {
@@ -143,6 +146,7 @@ const LeftSidebar = () => {
                     inParBonusWdMoney,
                     snRate,
                     snWdMoney,
+                    fixedRate,
                     snGrowth: snGrowth.slice(
                         beginningYear - 1970,
                         beginningYear - 1970 + years
@@ -210,6 +214,11 @@ const LeftSidebar = () => {
         setInPar(value);
         validateField(value, setInParError);
     };
+
+    const handleFixedRateChange = (value: number) => {
+        setFixedRate(value);
+        validateField(value, setFixedRateError);
+    }
 
     const handleCapRateChange = (value: number) => {
         setCapRate(value);
@@ -429,248 +438,279 @@ const LeftSidebar = () => {
                             />
                         </div>
                     </div>
-                    <div className="mt-[10px]">
-                        <Divider className="my-2">
-                            <Badge color={"purple"}>FIA + Index Par</Badge>
-                        </Divider>
-                        <div className="col-span-full sm:col-span-3 h-[90px]">
-                            <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
-                                Desired allocation (%)
-                            </label>
-                            <TextInput
-                                className="mx-auto max-w-xs mt-1"
-                                icon={RiPercentFill}
-                                placeholder="Allocation"
-                                type="number"
-                                value={inParRate.toString()}
-                                onChange={(e) =>
-                                    handleInParRateChange(
-                                        parseFloat(e.target.value)
-                                    )
-                                }
-                                onBlur={(e) => {
-                                    calcAccuntBalance();
-                                    handleInParRateChange(
-                                        parseFloat(e.target.value)
-                                    );
-                                }}
-                                error={!!inParRateError}
-                                errorMessage={inParRateError}
-                            />
+                    {!isIndexPar && (
+                        <div className="mt-[10px]">
+                            <Divider className="my-2">
+                                <Badge color={"blue"}>Fixed Rate of Return</Badge>
+                            </Divider>
+                            <div className="col-span-full sm:col-span-3 h-[90px]">
+                                <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
+                                    Desired allocation (%)
+                                </label>
+                                <TextInput
+                                    className="mx-auto max-w-xs mt-1"
+                                    icon={RiPercentFill}
+                                    placeholder="Allocation"
+                                    type="number"
+                                    value={snRate.toString()}
+                                    onChange={(e) =>
+                                        handleSnRateChange(
+                                            parseFloat(e.target.value)
+                                        )
+                                    }
+                                    onBlur={(e) => {
+                                        calcAccuntBalance();
+                                        handleSnRateChange(
+                                            parseFloat(e.target.value)
+                                        );
+                                    }}
+                                    error={!!snRateError}
+                                    errorMessage={snRateError}
+                                />
+                            </div>
+                            <div className="col-span-full sm:col-span-3 h-[90px]">
+                                <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
+                                    Fixed Rate (%)
+                                </label>
+                                <TextInput
+                                    className="mx-auto max-w-xs mt-1"
+                                    icon={RiPercentFill}
+                                    placeholder="Fixed Rate"
+                                    type="number"
+                                    value={fixedRate.toString()}
+                                    onChange={(e) =>
+                                        handleFixedRateChange(
+                                            parseFloat(e.target.value)
+                                        )
+                                    }
+                                    onBlur={(e) => {
+                                        calcAccuntBalance();
+                                        handleFixedRateChange(
+                                            parseFloat(e.target.value)
+                                        );
+                                    }}
+                                    error={!!fixedRateError}
+                                    errorMessage={fixedRateError}
+                                />
+                            </div>
+                            <div className="col-span-full sm:col-span-3 h-[90px]">
+                                <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
+                                    Withdrawals
+                                </label>
+                                <TextInput
+                                    className="mx-auto max-w-xs mt-1"
+                                    icon={RiMoneyDollarCircleFill}
+                                    placeholder="Withdrawals"
+                                    type="number"
+                                    value={snWdMoney.toString()}
+                                    onChange={(e) =>
+                                        handleSnWdMoneyChange(
+                                            parseFloat(e.target.value)
+                                        )
+                                    }
+                                    onBlur={(e) => {
+                                        calcAccuntBalance();
+                                        handleSnWdMoneyChange(
+                                            parseFloat(e.target.value)
+                                        );
+                                    }}
+                                    error={!!snWdMoneyError}
+                                    errorMessage={snWdMoneyError}
+                                />
+                            </div>
                         </div>
-                        <div className="col-span-full sm:col-span-3 h-[90px]">
-                            <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
-                                Index Par (%)
-                            </label>
-                            <TextInput
-                                className="mx-auto max-w-xs mt-1"
-                                icon={RiPercentFill}
-                                placeholder="Index Par"
-                                type="number"
-                                value={inPar.toString()}
-                                onChange={(e) =>
-                                    handleInParChange(
-                                        parseFloat(e.target.value)
-                                    )
-                                }
-                                onBlur={(e) => {
-                                    calcAccuntBalance();
-                                    handleInParChange(
-                                        parseFloat(e.target.value)
-                                    );
-                                }}
-                                error={!!inParError}
-                                errorMessage={inParError}
-                            />
-                        </div>
-                        <div className="col-span-full sm:col-span-3 h-[90px]">
-                            <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
-                                Earnings Cap Rate (%)
-                            </label>
-                            <TextInput
-                                className="mx-auto max-w-xs mt-1"
-                                icon={RiPercentFill}
-                                placeholder="Earnings Cap Rate"
-                                type="number"
-                                value={capRate.toString()}
-                                onChange={(e) =>
-                                    handleCapRateChange(
-                                        parseFloat(e.target.value)
-                                    )
-                                }
-                                onBlur={(e) => {
-                                    calcAccuntBalance();
-                                    handleCapRateChange(
-                                        parseFloat(e.target.value)
-                                    );
-                                }}
-                                error={!!capRateError}
-                                errorMessage={capRateError}
-                            />
-                        </div>
-                        <div className="col-span-full sm:col-span-3 h-[90px]">
-                            <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
-                                Withdrawals
-                            </label>
-                            <TextInput
-                                className="mx-auto max-w-xs mt-1"
-                                icon={RiMoneyDollarCircleFill}
-                                placeholder="Withdrawals"
-                                type="number"
-                                value={inParWdMoney.toString()}
-                                onChange={(e) =>
-                                    handleInParWdMoneyChange(
-                                        parseFloat(e.target.value)
-                                    )
-                                }
-                                onBlur={(e) => {
-                                    calcAccuntBalance();
-                                    handleInParWdMoneyChange(
-                                        parseFloat(e.target.value)
-                                    );
-                                }}
-                                error={!!inParWdMoneyError}
-                                errorMessage={inParWdMoneyError}
-                            />
-                        </div>
-                    </div>
-                    <div className="mt-[10px]">
-                        <Divider className="my-2">
-                            <Badge color={"green"}>
-                                FIA + Index Par + Bonus
-                            </Badge>
-                        </Divider>
-                        <div className="col-span-full sm:col-span-3 h-[90px]">
-                            <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
-                                Desired allocation (%)
-                            </label>
-                            <TextInput
-                                className="mx-auto max-w-xs mt-1"
-                                icon={RiPercentFill}
-                                placeholder="Allocation"
-                                type="number"
-                                value={inParBonusRate.toString()}
-                                onChange={(e) =>
-                                    handleInParBonusRateChange(
-                                        parseFloat(e.target.value)
-                                    )
-                                }
-                                onBlur={(e) => {
-                                    calcAccuntBalance();
-                                    handleInParBonusRateChange(
-                                        parseFloat(e.target.value)
-                                    );
-                                }}
-                                error={!!inParBonusRateError}
-                                errorMessage={inParBonusRateError}
-                            />
-                        </div>
-                        <div className="col-span-full sm:col-span-3 h-[90px]">
-                            <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
-                                Bonus (%)
-                            </label>
-                            <TextInput
-                                className="mx-auto max-w-xs mt-1"
-                                icon={RiPercentFill}
-                                placeholder="Bonus"
-                                type="number"
-                                value={inParBonus.toString()}
-                                onChange={(e) =>
-                                    handleInParBonusChange(
-                                        parseFloat(e.target.value)
-                                    )
-                                }
-                                onBlur={(e) => {
-                                    calcAccuntBalance();
-                                    handleInParBonusChange(
-                                        parseFloat(e.target.value)
-                                    );
-                                }}
-                                error={!!inParBonusError}
-                                errorMessage={inParBonusError}
-                            />
-                        </div>
-                        <div className="col-span-full sm:col-span-3 h-[90px]">
-                            <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
-                                Withdrawals
-                            </label>
-                            <TextInput
-                                className="mx-auto max-w-xs mt-1"
-                                icon={RiMoneyDollarCircleFill}
-                                placeholder="Withdrawals"
-                                type="number"
-                                value={inParBonusWdMoney.toString()}
-                                onChange={(e) =>
-                                    handleInParBonusWdMoneyChange(
-                                        parseFloat(e.target.value)
-                                    )
-                                }
-                                onBlur={(e) => {
-                                    calcAccuntBalance();
-                                    handleInParBonusWdMoneyChange(
-                                        parseFloat(e.target.value)
-                                    );
-                                }}
-                                error={!!inParBonusWdMoneyError}
-                                errorMessage={inParBonusWdMoneyError}
-                            />
-                        </div>
-                    </div>
-                    <div className="mt-[10px]">
-                        <Divider className="my-2">
-                            <Badge color={"blue"}>Structured Notes</Badge>
-                        </Divider>
-                        <div className="col-span-full sm:col-span-3 h-[90px]">
-                            <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
-                                Desired allocation (%)
-                            </label>
-                            <TextInput
-                                className="mx-auto max-w-xs mt-1"
-                                icon={RiPercentFill}
-                                placeholder="Allocation"
-                                type="number"
-                                value={snRate.toString()}
-                                onChange={(e) =>
-                                    handleSnRateChange(
-                                        parseFloat(e.target.value)
-                                    )
-                                }
-                                onBlur={(e) => {
-                                    calcAccuntBalance();
-                                    handleSnRateChange(
-                                        parseFloat(e.target.value)
-                                    );
-                                }}
-                                error={!!snRateError}
-                                errorMessage={snRateError}
-                            />
-                        </div>
-                        <div className="col-span-full sm:col-span-3 h-[90px]">
-                            <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
-                                Withdrawals
-                            </label>
-                            <TextInput
-                                className="mx-auto max-w-xs mt-1"
-                                icon={RiMoneyDollarCircleFill}
-                                placeholder="Withdrawals"
-                                type="number"
-                                value={snWdMoney.toString()}
-                                onChange={(e) =>
-                                    handleSnWdMoneyChange(
-                                        parseFloat(e.target.value)
-                                    )
-                                }
-                                onBlur={(e) => {
-                                    calcAccuntBalance();
-                                    handleSnWdMoneyChange(
-                                        parseFloat(e.target.value)
-                                    );
-                                }}
-                                error={!!snWdMoneyError}
-                                errorMessage={snWdMoneyError}
-                            />
-                        </div>
-                    </div>
+                    )}
+                    {isIndexPar && (
+                        <>
+                            <div className="mt-[10px]">
+                                <Divider className="my-2">
+                                    <Badge color={"purple"}>FIA + Index Par</Badge>
+                                </Divider>
+                                <div className="col-span-full sm:col-span-3 h-[90px]">
+                                    <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
+                                        Desired allocation (%)
+                                    </label>
+                                    <TextInput
+                                        className="mx-auto max-w-xs mt-1"
+                                        icon={RiPercentFill}
+                                        placeholder="Allocation"
+                                        type="number"
+                                        value={inParRate.toString()}
+                                        onChange={(e) =>
+                                            handleInParRateChange(
+                                                parseFloat(e.target.value)
+                                            )
+                                        }
+                                        onBlur={(e) => {
+                                            calcAccuntBalance();
+                                            handleInParRateChange(
+                                                parseFloat(e.target.value)
+                                            );
+                                        }}
+                                        error={!!inParRateError}
+                                        errorMessage={inParRateError}
+                                    />
+                                </div>
+                                <div className="col-span-full sm:col-span-3 h-[90px]">
+                                    <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
+                                        Index Par (%)
+                                    </label>
+                                    <TextInput
+                                        className="mx-auto max-w-xs mt-1"
+                                        icon={RiPercentFill}
+                                        placeholder="Index Par"
+                                        type="number"
+                                        value={inPar.toString()}
+                                        onChange={(e) =>
+                                            handleInParChange(
+                                                parseFloat(e.target.value)
+                                            )
+                                        }
+                                        onBlur={(e) => {
+                                            calcAccuntBalance();
+                                            handleInParChange(
+                                                parseFloat(e.target.value)
+                                            );
+                                        }}
+                                        error={!!inParError}
+                                        errorMessage={inParError}
+                                    />
+                                </div>
+                                <div className="col-span-full sm:col-span-3 h-[90px]">
+                                    <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
+                                        Earnings Cap Rate (%)
+                                    </label>
+                                    <TextInput
+                                        className="mx-auto max-w-xs mt-1"
+                                        icon={RiPercentFill}
+                                        placeholder="Earnings Cap Rate"
+                                        type="number"
+                                        value={capRate.toString()}
+                                        onChange={(e) =>
+                                            handleCapRateChange(
+                                                parseFloat(e.target.value)
+                                            )
+                                        }
+                                        onBlur={(e) => {
+                                            calcAccuntBalance();
+                                            handleCapRateChange(
+                                                parseFloat(e.target.value)
+                                            );
+                                        }}
+                                        error={!!capRateError}
+                                        errorMessage={capRateError}
+                                    />
+                                </div>
+                                <div className="col-span-full sm:col-span-3 h-[90px]">
+                                    <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
+                                        Withdrawals
+                                    </label>
+                                    <TextInput
+                                        className="mx-auto max-w-xs mt-1"
+                                        icon={RiMoneyDollarCircleFill}
+                                        placeholder="Withdrawals"
+                                        type="number"
+                                        value={inParWdMoney.toString()}
+                                        onChange={(e) =>
+                                            handleInParWdMoneyChange(
+                                                parseFloat(e.target.value)
+                                            )
+                                        }
+                                        onBlur={(e) => {
+                                            calcAccuntBalance();
+                                            handleInParWdMoneyChange(
+                                                parseFloat(e.target.value)
+                                            );
+                                        }}
+                                        error={!!inParWdMoneyError}
+                                        errorMessage={inParWdMoneyError}
+                                    />
+                                </div>
+                            </div>
+                            <div className="mt-[10px]">
+                                <Divider className="my-2">
+                                    <Badge color={"green"}>
+                                        FIA + Index Par + Bonus
+                                    </Badge>
+                                </Divider>
+                                <div className="col-span-full sm:col-span-3 h-[90px]">
+                                    <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
+                                        Desired allocation (%)
+                                    </label>
+                                    <TextInput
+                                        className="mx-auto max-w-xs mt-1"
+                                        icon={RiPercentFill}
+                                        placeholder="Allocation"
+                                        type="number"
+                                        value={inParBonusRate.toString()}
+                                        onChange={(e) =>
+                                            handleInParBonusRateChange(
+                                                parseFloat(e.target.value)
+                                            )
+                                        }
+                                        onBlur={(e) => {
+                                            calcAccuntBalance();
+                                            handleInParBonusRateChange(
+                                                parseFloat(e.target.value)
+                                            );
+                                        }}
+                                        error={!!inParBonusRateError}
+                                        errorMessage={inParBonusRateError}
+                                    />
+                                </div>
+                                <div className="col-span-full sm:col-span-3 h-[90px]">
+                                    <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
+                                        Bonus (%)
+                                    </label>
+                                    <TextInput
+                                        className="mx-auto max-w-xs mt-1"
+                                        icon={RiPercentFill}
+                                        placeholder="Bonus"
+                                        type="number"
+                                        value={inParBonus.toString()}
+                                        onChange={(e) =>
+                                            handleInParBonusChange(
+                                                parseFloat(e.target.value)
+                                            )
+                                        }
+                                        onBlur={(e) => {
+                                            calcAccuntBalance();
+                                            handleInParBonusChange(
+                                                parseFloat(e.target.value)
+                                            );
+                                        }}
+                                        error={!!inParBonusError}
+                                        errorMessage={inParBonusError}
+                                    />
+                                </div>
+                                <div className="col-span-full sm:col-span-3 h-[90px]">
+                                    <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
+                                        Withdrawals
+                                    </label>
+                                    <TextInput
+                                        className="mx-auto max-w-xs mt-1"
+                                        icon={RiMoneyDollarCircleFill}
+                                        placeholder="Withdrawals"
+                                        type="number"
+                                        value={inParBonusWdMoney.toString()}
+                                        onChange={(e) =>
+                                            handleInParBonusWdMoneyChange(
+                                                parseFloat(e.target.value)
+                                            )
+                                        }
+                                        onBlur={(e) => {
+                                            calcAccuntBalance();
+                                            handleInParBonusWdMoneyChange(
+                                                parseFloat(e.target.value)
+                                            );
+                                        }}
+                                        error={!!inParBonusWdMoneyError}
+                                        errorMessage={inParBonusWdMoneyError}
+                                    />
+                                </div>
+                            </div>
+                        </>
+                    )}
                 </div>
             </div>
             <div className="lg:w-full px-4">

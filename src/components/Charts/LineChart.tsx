@@ -10,14 +10,18 @@ const dataFormatter = (number: number) =>
     `$${Intl.NumberFormat("us").format(number).toString()}`;
 
 export function LineChartHero() {
-    const { balances } = useAppSelector((state) => state.calc);
+    const { balances, isIndexPar } = useAppSelector((state) => state.calc);
 
-    const chart_data = balances.map((item: any) => ({
+    const chart_data = isIndexPar ? balances.map((item: any) => ({
         year: item.year,
         "S&P 500 Index": item.sp.balance,
+        // "Fixed Rate of Return": item.sn.balance,
         "FIA + Index Par": item.inPar.balance,
         "FIA + Index Par + Bonus": item.inParBonus.balance,
-        "Struntured Notes": item.sn.balance,
+    })): balances.map((item: any) => ({
+        year: item.year,
+        "S&P 500 Index": item.sp.balance,
+        "Fixed Rate of Return": item.sn.balance,
     }));
     return (
         <Card title="Account Balance">
@@ -25,13 +29,16 @@ export function LineChartHero() {
                 className="h-80 w-full"
                 data={chart_data}
                 index="year"
-                categories={[
+                categories={isIndexPar ? [
                     "S&P 500 Index",
+                    // "Fixed Rate of Return",
                     "FIA + Index Par",
                     "FIA + Index Par + Bonus",
-                    "Struntured Notes",
+                ]: [
+                    "S&P 500 Index",
+                    "Fixed Rate of Return",
                 ]}
-                colors={["orange", "purple", "green", "blue"]}
+                colors={isIndexPar ? ["orange", "purple", "green"]: ["orange", "blue"]}
                 valueFormatter={dataFormatter}
                 yAxisWidth={80}
                 onValueChange={(v) => console.log(v)}

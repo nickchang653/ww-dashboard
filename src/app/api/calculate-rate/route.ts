@@ -20,6 +20,7 @@ type RateRequestBody = {
     inParBonusWdMoney: number;
     snRate: number;
     snWdMoney: number;
+    fixedRate: number;
     snGrowth: number[];
 };
 
@@ -43,6 +44,7 @@ export async function POST(request: NextRequest) {
     inParBonusWdMoney,
     snRate,
     snWdMoney,
+    fixedRate,
     snGrowth,
   } = body;
 
@@ -67,7 +69,7 @@ export async function POST(request: NextRequest) {
     inParBonusGrowth = inParBonusGrowth > 0 ? inParBonusGrowth: 0;
 
     let snBalance = index == 0 ? (investment * 1.0 * snRate / 100): history[0].sn.balance * history[index - 1].sn.growth  / 1.0 / 100 +  history[index - 1].sn.balance - snWdMoney;
-    let snTmpGrowth = snGrowth[index] - fee;
+    let snTmpGrowth = fixedRate - fee;
     snTmpGrowth = snTmpGrowth > 0 ? snTmpGrowth: 0;
 
     history.push({

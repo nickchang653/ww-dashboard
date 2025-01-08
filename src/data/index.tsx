@@ -9,4 +9,5 @@ export const DEFAULT_INPUTS: any = {
     in_par: 80,
     cap_rate: 25,
     bonus: 12,
+    fixed_rate: 5,
 };

@@ -5,6 +5,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 export interface CalcState {
     isNoticeModal: boolean;
     isEditableModal: boolean;
+    isIndexPar: boolean;
     isDisclaimerModal: boolean;
     isEdit: string;
     snGrowth: number[];
@@ -19,6 +20,7 @@ export interface CalcState {
 const initialState: CalcState = {
     isNoticeModal: false,
     isEditableModal: false,
+    isIndexPar: false,
     isDisclaimerModal: false,
     isEdit: "None",
     snGrowth: new Array(54).fill(0),
@@ -72,6 +74,9 @@ export const calcSlice = createSlice({
         setIsLoading(state, action: PayloadAction<boolean>) {
             state.isLoading = action.payload;
         },
+        setIsIndexPar(state, action: PayloadAction<boolean>) {
+            state.isIndexPar = action.payload;
+        },
     },
 })
 
@@ -88,6 +93,7 @@ export const {
     setIsEdit,
     setCalcAction,
     setIsLoading,
+    setIsIndexPar,
 } = calcSlice.actions
 
 export default calcSlice.reducer
