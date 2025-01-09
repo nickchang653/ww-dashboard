@@ -56,20 +56,20 @@ export async function POST(request: NextRequest) {
     let year = beginningYear + index;
     let ages = clientAge + index;
     let spBalance = index == 0 ? (investment * 1.0 * spRate / 100): history[index - 1].sp.balance * (1 + ((SP_500_GROWTHS as any)[(year - 1).toString()] - fee)/100) - wdMoney;
-    let spGrowth = (SP_500_GROWTHS as any)[(year).toString()] - fee
+    let spGrowth = (SP_500_GROWTHS as any)[(year).toString()]
     let spWdMoney = wdMoney;
 
-    let inParBalance = index == 0 ? (investment * 1.0 * inParRate / 100): history[index - 1].inPar.balance * (1 + history[index - 1].inPar.growth / 1.0 / 100) - inParWdMoney;
+    let inParBalance = index == 0 ? (investment * 1.0 * inParRate / 100): history[index - 1].inPar.balance * (1 + (history[index - 1].inPar.growth - fee) / 1.0 / 100) - inParWdMoney;
     let inParTotalGrowth = (SP_500_GROWTHS as any)[(year).toString()] * inPar / 1.0 / 100;
-    let inParGrowth = (inParTotalGrowth > capRate ? capRate: inParTotalGrowth) - fee;
+    let inParGrowth = (inParTotalGrowth > capRate ? capRate: inParTotalGrowth);
     inParGrowth = inParGrowth > 0 ? inParGrowth: 0;
     
-    let inParBonusBalance = index == 0 ? (investment * 1.0 * inParBonusRate / 100): history[index - 1].inParBonus.balance * (1 + (history[index - 1].inParBonus.growth ) / 1.0 / 100 ) - inParWdMoney;
-    let inParBonusGrowth = inParBonus - fee;
+    let inParBonusBalance = index == 0 ? (investment * 1.0 * inParBonusRate / 100): history[index - 1].inParBonus.balance * (1 + (history[index - 1].inParBonus.growth - fee) / 1.0 / 100 ) - inParWdMoney;
+    let inParBonusGrowth = inParBonus;
     inParBonusGrowth = inParBonusGrowth > 0 ? inParBonusGrowth: 0;
 
-    let snBalance = index == 0 ? (investment * 1.0 * snRate / 100): history[index - 1].sn.balance * history[index - 1].sn.growth  / 1.0 / 100 +  history[index - 1].sn.balance - snWdMoney;
-    let snTmpGrowth = fixedRate - fee;
+    let snBalance = index == 0 ? (investment * 1.0 * snRate / 100): history[index - 1].sn.balance * (history[index - 1].sn.growth - fee)  / 1.0 / 100 +  history[index - 1].sn.balance - snWdMoney;
+    let snTmpGrowth = fixedRate;
     snTmpGrowth = snTmpGrowth > 0 ? snTmpGrowth: 0;
 
     history.push({
@@ -100,9 +100,9 @@ export async function POST(request: NextRequest) {
   
   let year = beginningYear + years - 1;
   let spBalance = history[years - 1].sp.balance * (1 + ((SP_500_GROWTHS as any)[(year - 1).toString()] - 1)/100) - wdMoney;
-  let inParBalance = history[years - 1].inPar.balance * (1 + history[years - 1].inPar.growth / 1.0 / 100) - inParWdMoney;
-  let inParBonusBalance = history[years - 1].inParBonus.balance * (1 + (history[years - 1].inParBonus.growth ) / 1.0 / 100 ) - inParWdMoney;
-  let snBalance = history[years - 1].sn.balance * history[years - 1].sn.growth  / 1.0 / 100 +  history[years - 1].sn.balance - snWdMoney;
+  let inParBalance = history[years - 1].inPar.balance * (1 + (history[years - 1].inPar.growth - fee) / 1.0 / 100) - inParWdMoney;
+  let inParBonusBalance = history[years - 1].inParBonus.balance * (1 + (history[years - 1].inParBonus.growth - fee) / 1.0 / 100 ) - inParWdMoney;
+  let snBalance = history[years - 1].sn.balance * (history[years - 1].sn.growth - fee)  / 1.0 / 100 +  history[years - 1].sn.balance - snWdMoney;
 
   let spCapRate = (spBalance - investment * 1.0 * spRate / 100 + wdMoney * years) / (investment * 1.0 * spRate / 100 * years) * 100;
   let inParCapRate = (inParBalance - investment * 1.0 * inParRate / 100 + inParWdMoney * years) / (investment * 1.0 * inParRate / 100 * years) * 100;

@@ -40,14 +40,14 @@ export function AccountBalanceTable() {
                         ></TableHeaderCell>
                         <TableHeaderCell colSpan={3}>
                             <Callout
-                                title="S&P 500 Index"
+                                title="S&P 500 Index Decumulation With Volatility & “NAKED "
                                 color="orange"
                             ></Callout>
                         </TableHeaderCell>
                         {!isIndexPar && (
                             <TableHeaderCell colSpan={3}>
                                 <Callout
-                                    title="Fixed Rate of Return"
+                                    title="Fixed Rate of Return Decumulation Without Volatility  & No “NAKED RISK”"
                                     color="blue"
                                 ></Callout>
                             </TableHeaderCell>
@@ -187,15 +187,15 @@ export function AccountBalanceTable() {
                         <TableCell className="bg-[#ec732a1a]">
                             {formatCurrency(Math.round(finalGrowth.spBalance))}
                         </TableCell>
-                        <TableCell className=""></TableCell>
-                        <TableCell className=""></TableCell>
+                        <TableCell className="bg-[#ec732a1a]">{!!avgGrowth.sp ? avgGrowth.sp.toFixed(2) : 0.0}%</TableCell>
+                        <TableCell className="bg-[#ec732a1a]">{formatCurrency(balances[0].sp.wdMoney * balances.length)}</TableCell>
                         {!isIndexPar && (
                             <>
                                 <TableCell className="bg-[#3b82f61a]">
                                     {formatCurrency(Math.round(finalGrowth.snBalance))}
                                 </TableCell>
-                                <TableCell className=""></TableCell>
-                                <TableCell className=""></TableCell>
+                                <TableCell className="bg-[#3b82f61a]">{!!avgGrowth.sn ? avgGrowth.sn.toFixed(2) : 0.0}%</TableCell>
+                                <TableCell className="bg-[#3b82f61a]">{formatCurrency(balances[0].sn.wdMoney * balances.length)}</TableCell>
                             </>
                         )}
                         {isIndexPar && (
@@ -205,70 +205,25 @@ export function AccountBalanceTable() {
                                         Math.round(finalGrowth.inParBalance)
                                     )}
                                 </TableCell>
-                                <TableCell className=""></TableCell>
-                                <TableCell className=""></TableCell>
-                                <TableCell className="bg-[#8cc44f1a]">
-                                    {formatCurrency(
-                                        Math.round(finalGrowth.inParBonusBalance)
-                                    )}
-                                </TableCell>
-                                <TableCell className=""></TableCell>
-                                <TableCell className=""></TableCell>
-                            </>
-                        )}
-                    </TableRow>
-                    <TableRow key={"avg-row"} className="font-extrabold">
-                        <TableCell
-                            rowSpan={1}
-                            colSpan={3}
-                            className="text-center"
-                        ></TableCell>
-                        <TableCell className="bg-[#ec732a1a]">
-                            Avg ROR
-                        </TableCell>
-                        <TableCell
-                            className="bg-[#ec732a1a] text-center"
-                            colSpan={2}
-                        >
-                            {!!avgGrowth.sp ? avgGrowth.sp.toFixed(2) : 0.0}%
-                        </TableCell>
-                        {!isIndexPar && (
-                            <>
-                                <TableCell className="bg-[#3b82f61a]">
-                                    Avg ROR
-                                </TableCell>
-                                <TableCell
-                                    className="bg-[#3b82f61a] text-center"
-                                    colSpan={2}
-                                >
-                                    {!!avgGrowth.sn ? avgGrowth.sn.toFixed(2) : 0.0}%
-                                </TableCell>
-                            </>
-                        )}
-                        {isIndexPar && (
-                            <>
-                                <TableCell className="bg-[#f4ecfc]">Avg ROR</TableCell>
-                                <TableCell
-                                    className="bg-[#f4ecfc] text-center"
-                                    colSpan={2}
-                                >
+                                <TableCell className="bg-[#f4ecfc]">
                                     {!!avgGrowth.inPar
                                         ? avgGrowth.inPar.toFixed(2)
                                         : 0.0}{" "}
                                     %
                                 </TableCell>
+                                <TableCell className="bg-[#f4ecfc]">{formatCurrency(balances[0].inPar.wdMoney * balances.length)}</TableCell>
                                 <TableCell className="bg-[#8cc44f1a]">
-                                    Avg ROR
+                                    {formatCurrency(
+                                        Math.round(finalGrowth.inParBonusBalance)
+                                    )}
                                 </TableCell>
-                                <TableCell
-                                    className="bg-[#8cc44f1a] text-center"
-                                    colSpan={2}
-                                >
+                                <TableCell className="bg-[#8cc44f1a]">
                                     {!!avgGrowth.inParBonus
                                         ? avgGrowth.inParBonus.toFixed(2)
                                         : 0.0}{" "}
                                     %
                                 </TableCell>
+                                <TableCell className="bg-[#8cc44f1a]">{formatCurrency(balances[0].inParBonus.wdMoney * balances.length)}</TableCell>
                             </>
                         )}
                     </TableRow>
