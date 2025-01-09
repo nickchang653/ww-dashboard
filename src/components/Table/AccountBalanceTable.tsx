@@ -188,14 +188,14 @@ export function AccountBalanceTable() {
                             {formatCurrency(Math.round(finalGrowth.spBalance))}
                         </TableCell>
                         <TableCell className="bg-[#ec732a1a]">{!!avgGrowth.sp ? avgGrowth.sp.toFixed(2) : 0.0}%</TableCell>
-                        <TableCell className="bg-[#ec732a1a]">{formatCurrency(balances[0].sp.wdMoney * balances.length)}</TableCell>
+                        <TableCell className="bg-[#ec732a1a]">{formatCurrency(balances[0] ? balances[0].sp.wdMoney * balances.length: 0.0)}</TableCell>
                         {!isIndexPar && (
                             <>
                                 <TableCell className="bg-[#3b82f61a]">
                                     {formatCurrency(Math.round(finalGrowth.snBalance))}
                                 </TableCell>
                                 <TableCell className="bg-[#3b82f61a]">{!!avgGrowth.sn ? avgGrowth.sn.toFixed(2) : 0.0}%</TableCell>
-                                <TableCell className="bg-[#3b82f61a]">{formatCurrency(balances[0].sn.wdMoney * balances.length)}</TableCell>
+                                <TableCell className="bg-[#3b82f61a]">{formatCurrency(balances[0] ? balances[0].sn.wdMoney * balances.length: 0.0)}</TableCell>
                             </>
                         )}
                         {isIndexPar && (
@@ -211,7 +211,7 @@ export function AccountBalanceTable() {
                                         : 0.0}{" "}
                                     %
                                 </TableCell>
-                                <TableCell className="bg-[#f4ecfc]">{formatCurrency(balances[0].inPar.wdMoney * balances.length)}</TableCell>
+                                <TableCell className="bg-[#f4ecfc]">{formatCurrency(balances[0] ? balances[0].inPar.wdMoney * balances.length: 0.0)}</TableCell>
                                 <TableCell className="bg-[#8cc44f1a]">
                                     {formatCurrency(
                                         Math.round(finalGrowth.inParBonusBalance)
@@ -223,7 +223,7 @@ export function AccountBalanceTable() {
                                         : 0.0}{" "}
                                     %
                                 </TableCell>
-                                <TableCell className="bg-[#8cc44f1a]">{formatCurrency(balances[0].inParBonus.wdMoney * balances.length)}</TableCell>
+                                <TableCell className="bg-[#8cc44f1a]">{formatCurrency(balances[0] ? balances[0].inParBonus.wdMoney * balances.length: 0.0)}</TableCell>
                             </>
                         )}
                     </TableRow>
