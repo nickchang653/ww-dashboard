@@ -40,14 +40,14 @@ export function AccountBalanceTable() {
                         ></TableHeaderCell>
                         <TableHeaderCell colSpan={3}>
                             <Callout
-                                title="S&P 500 Index Decumulation With Volatility & “NAKED "
+                                title="S&P 500 Index Decumulation With Volatility & “Naked Risk"
                                 color="orange"
                             ></Callout>
                         </TableHeaderCell>
                         {!isIndexPar && (
                             <TableHeaderCell colSpan={3}>
                                 <Callout
-                                    title="Fixed Rate of Return Decumulation Without Volatility  & No “NAKED RISK”"
+                                    title="Fixed Rate of Return Decumulation Without Volatility  & No “Naked Risk”"
                                     color="blue"
                                 ></Callout>
                             </TableHeaderCell>
