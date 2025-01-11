@@ -14,31 +14,28 @@ export function BarChartHero() {
         {
             name: "S&P 500",
             "S&P 500": Math.round(avgGrowth.sp * 100) / 100,
-            FIA: Math.round(avgGrowth.inPar * 100) / 100,
-            "FIA+B": Math.round(avgGrowth.inParBonus * 100) / 100,
-        },
-        // // {
-        // //     name: "FRR",
-        // //     SN: Math.round(avgGrowth.sn * 100) / 100,
-        // // },
-        // {
-        //     name: "FIA",
-        //     FIA: Math.round(avgGrowth.inPar * 100) / 100,
-        // },
-        // {
-        //     name: "FIA+B",
-        //     "FIA+B": Math.round(avgGrowth.inParBonus * 100) / 100,
-        // }
-    ]: [
-        {
-            name: "Avg RoR Cap",
-            "S&P 500": Math.round(avgGrowth.sp * 100) / 100,
-            FRR: Math.round(avgGrowth.sn * 100) / 100,
         },
         // {
         //     name: "FRR",
-        //     FRR: Math.round(avgGrowth.sn * 100) / 100,
-        // }
+        //     SN: Math.round(avgGrowth.sn * 100) / 100,
+        // },
+        {
+            name: "FIA",
+            FIA: Math.round(avgGrowth.inPar * 100) / 100,
+        },
+        {
+            name: "FIA+B",
+            "FIA+B": Math.round(avgGrowth.inParBonus * 100) / 100,
+        }
+    ]: [
+        {
+            name: "S&P 500",
+            "S&P 500": Math.round(avgGrowth.sp * 100) / 100,
+        },
+        {
+            name: "FRR",
+            FRR: Math.round(avgGrowth.sn * 100) / 100,
+        }
     ];
     return (
         <Card title="Avg RoR Cap">
