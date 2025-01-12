@@ -38,7 +38,7 @@ export function LineChartHero() {
                     "S&P 500 Index",
                     "Fixed Rate of Return",
                 ]}
-                colors={isIndexPar ? ["orange", "purple", "green"]: ["orange", "blue"]}
+                colors={isIndexPar ? ["orange", "purple", "green"]: ["orange", "green"]}
                 valueFormatter={dataFormatter}
                 yAxisWidth={80}
                 onValueChange={(v) => console.log(v)}

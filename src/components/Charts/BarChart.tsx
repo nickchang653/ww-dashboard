@@ -44,7 +44,7 @@ export function BarChartHero() {
                 data={chart_data}
                 index="name"
                 categories={isIndexPar ? ["S&P 500", "FIA", "FIA+B"]: ["S&P 500", "FRR"]}
-                colors={isIndexPar ? ["orange", "purple", "green"]: ["orange", "blue"]}
+                colors={isIndexPar ? ["orange", "purple", "green"]: ["orange", "green"]}
                 valueFormatter={dataFormatter}
                 yAxisWidth={36}
             />

@@ -34,3 +34,7 @@
 .stroke-green-500 {
     stroke: #8cc44f;
 }
+
+.tremor-table-custom tr td {
+    padding: 4px;
+}

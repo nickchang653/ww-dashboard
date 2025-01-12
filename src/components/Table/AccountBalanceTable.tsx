@@ -31,7 +31,7 @@ export function AccountBalanceTable() {
     } = useAppSelector((state) => state.calc);
     return (
         <Card title="Account Balance Table" editable="true">
-            <Table className="text-tremor-content-strong dark:text-dark-tremor-content-strong font-semibold">
+            <Table className="tremor-table-custom text-tremor-content-strong dark:text-dark-tremor-content-strong font-semibold">
                 <TableHead>
                     <TableRow>
                         <TableHeaderCell
@@ -48,7 +48,7 @@ export function AccountBalanceTable() {
                             <TableHeaderCell colSpan={3}>
                                 <Callout
                                     title="Fixed Rate of Return Decumulation Without Volatility  & No “Naked Risk”"
-                                    color="blue"
+                                    color="green"
                                 ></Callout>
                             </TableHeaderCell>
                         )} 
@@ -114,10 +114,10 @@ export function AccountBalanceTable() {
                                 </TableCell>
                                 {!isIndexPar && (
                                     <>
-                                        <TableCell className="bg-[#3b82f61a]">
+                                        <TableCell className="bg-[#8cc44f1a]">
                                             {formatCurrency(Math.round(bl.sn.balance))}
                                         </TableCell>
-                                        <TableCell className="bg-[#3b82f61a]">
+                                        <TableCell className="bg-[#8cc44f1a]">
                                             {isEditableModal ? (
                                                 <TextInput
                                                     placeholder="Growth"
@@ -140,7 +140,7 @@ export function AccountBalanceTable() {
                                                 bl.sn.growth.toFixed(2) + "%"
                                             )}{" "}
                                         </TableCell>
-                                        <TableCell className="bg-[#3b82f61a]">
+                                        <TableCell className="bg-[#8cc44f1a]">
                                             {formatCurrency(bl.sn.wdMoney)}
                                         </TableCell>
                                     </>
@@ -184,46 +184,46 @@ export function AccountBalanceTable() {
                         >
                             <span>{"Total"}</span>
                         </TableCell>
-                        <TableCell className="bg-[#ec732a1a]">
+                        <TableCell className="bg-[#ec732a1a] text-[#ec732a]">
                             {formatCurrency(Math.round(finalGrowth.spBalance))}
                         </TableCell>
-                        <TableCell className="bg-[#ec732a1a]">{!!avgGrowth.sp ? avgGrowth.sp.toFixed(2) : 0.0}%</TableCell>
-                        <TableCell className="bg-[#ec732a1a]">{formatCurrency(balances[0] ? balances[0].sp.wdMoney * balances.length: 0.0)}</TableCell>
+                        <TableCell className="bg-[#ec732a1a] text-[#ec732a]">{!!avgGrowth.sp ? avgGrowth.sp.toFixed(2) : 0.0}%</TableCell>
+                        <TableCell className="bg-[#ec732a1a] text-[#ec732a]">{formatCurrency(balances[0] ? balances[0].sp.wdMoney * balances.length: 0.0)}</TableCell>
                         {!isIndexPar && (
                             <>
-                                <TableCell className="bg-[#3b82f61a]">
+                                <TableCell className="bg-[#8cc44f1a] text-[#8cc44f]">
                                     {formatCurrency(Math.round(finalGrowth.snBalance))}
                                 </TableCell>
-                                <TableCell className="bg-[#3b82f61a]">{!!avgGrowth.sn ? avgGrowth.sn.toFixed(2) : 0.0}%</TableCell>
-                                <TableCell className="bg-[#3b82f61a]">{formatCurrency(balances[0] ? balances[0].sn.wdMoney * balances.length: 0.0)}</TableCell>
+                                <TableCell className="bg-[#8cc44f1a] text-[#8cc44f]">{!!avgGrowth.sn ? avgGrowth.sn.toFixed(2) : 0.0}%</TableCell>
+                                <TableCell className="bg-[#8cc44f1a] text-[#8cc44f]">{formatCurrency(balances[0] ? balances[0].sn.wdMoney * balances.length: 0.0)}</TableCell>
                             </>
                         )}
                         {isIndexPar && (
                             <>
-                                <TableCell className="bg-[#f4ecfc]">
+                                <TableCell className="bg-[#f4ecfc] text-[#73309e]">
                                     {formatCurrency(
                                         Math.round(finalGrowth.inParBalance)
                                     )}
                                 </TableCell>
-                                <TableCell className="bg-[#f4ecfc]">
+                                <TableCell className="bg-[#f4ecfc] text-[#73309e]">
                                     {!!avgGrowth.inPar
                                         ? avgGrowth.inPar.toFixed(2)
                                         : 0.0}{" "}
                                     %
                                 </TableCell>
-                                <TableCell className="bg-[#f4ecfc]">{formatCurrency(balances[0] ? balances[0].inPar.wdMoney * balances.length: 0.0)}</TableCell>
-                                <TableCell className="bg-[#8cc44f1a]">
+                                <TableCell className="bg-[#f4ecfc] text-[#73309e]">{formatCurrency(balances[0] ? balances[0].inPar.wdMoney * balances.length: 0.0)}</TableCell>
+                                <TableCell className="bg-[#8cc44f1a] text-[#8cc44f]">
                                     {formatCurrency(
                                         Math.round(finalGrowth.inParBonusBalance)
                                     )}
                                 </TableCell>
-                                <TableCell className="bg-[#8cc44f1a]">
+                                <TableCell className="bg-[#8cc44f1a] text-[#8cc44f]">
                                     {!!avgGrowth.inParBonus
                                         ? avgGrowth.inParBonus.toFixed(2)
                                         : 0.0}{" "}
                                     %
                                 </TableCell>
-                                <TableCell className="bg-[#8cc44f1a]">{formatCurrency(balances[0] ? balances[0].inParBonus.wdMoney * balances.length: 0.0)}</TableCell>
+                                <TableCell className="bg-[#8cc44f1a] text-[#8cc44f]">{formatCurrency(balances[0] ? balances[0].inParBonus.wdMoney * balances.length: 0.0)}</TableCell>
                             </>
                         )}
                     </TableRow>

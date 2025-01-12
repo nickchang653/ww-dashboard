@@ -441,7 +441,7 @@ const LeftSidebar = () => {
                     {!isIndexPar && (
                         <div className="mt-[10px]">
                             <Divider className="my-2">
-                                <Badge color={"blue"}>Fixed Rate of Return</Badge>
+                                <Badge color={"green"}>Fixed Rate of Return</Badge>
                             </Divider>
                             <div className="col-span-full sm:col-span-3 h-[90px]">
                                 <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
