@@ -33,8 +33,8 @@ export function BarChartHero() {
             "S&P 500": Math.round(avgGrowth.sp * 100) / 100,
         },
         {
-            name: "FRR",
-            FRR: Math.round(avgGrowth.sn * 100) / 100,
+            name: "Fixed Return",
+            "Fixed Return": Math.round(avgGrowth.sn * 100) / 100,
         }
     ];
     return (
@@ -43,7 +43,7 @@ export function BarChartHero() {
                 className="mt-6"
                 data={chart_data}
                 index="name"
-                categories={isIndexPar ? ["S&P 500", "FIA", "FIA+B"]: ["S&P 500", "FRR"]}
+                categories={isIndexPar ? ["S&P 500", "FIA", "FIA+B"]: ["S&P 500", "Fixed Return"]}
                 colors={isIndexPar ? ["orange", "purple", "green"]: ["orange", "green"]}
                 valueFormatter={dataFormatter}
                 yAxisWidth={36}
