@@ -29,7 +29,7 @@ export function BarChartHero() {
         }
     ]: [
         {
-            name: "S&P 500",
+            name: "Average Return",
             "S&P 500": Math.round(avgGrowth.sp * 100) / 100,
         },
         {
