@@ -48,7 +48,10 @@ const LeftSidebar = () => {
     const [beginningYear, setBeginningYear] = useState<number>(
         DEFAULT_INPUTS.beginning_year
     );
-    const [fee, setFee] = useState<number>(DEFAULT_INPUTS.fee);
+    const [spFee, setSpFee] = useState<number>(DEFAULT_INPUTS.sp_fee);
+    const [frFee, setFrFee] = useState<number>(DEFAULT_INPUTS.fr_fee);
+    const [inParFee, setInParFee] = useState<number>(DEFAULT_INPUTS.in_par_fee);
+    const [bonusFee, setBonusFee] = useState<number>(DEFAULT_INPUTS.bonus_fee);
     const [spRate, setSpRate] = useState<number>(DEFAULT_INPUTS.sp_rate);
     const [wdMoney, setWdMoney] = useState<number>(DEFAULT_INPUTS.wd_money);
     const [inPar, setInPar] = useState<number>(DEFAULT_INPUTS.in_par);
@@ -90,7 +93,6 @@ const LeftSidebar = () => {
     const [userName, setUserName] = useState("");
 
     useEffect(() => {
-        console.log(userInfo);
         (async () => {
             if (
                 userInfo &&
@@ -134,7 +136,10 @@ const LeftSidebar = () => {
                     clientAge,
                     years,
                     beginningYear,
-                    fee,
+                    spFee,
+                    frFee,
+                    inParFee,
+                    bonusFee,
                     spRate,
                     wdMoney,
                     inPar,
@@ -190,8 +195,23 @@ const LeftSidebar = () => {
         validateBeginningYear(value, setBeginningYearError);
     };
 
-    const handleFeeChange = (value: number) => {
-        setFee(value);
+    const handleSpFeeChange = (value: number) => {
+        setSpFee(value);
+        validateField(value, setFeeError);
+    };
+    
+    const handleFrFeeChange = (value: number) => {
+        setFrFee(value);
+        validateField(value, setFeeError);
+    };
+
+    const handleInParFeeChange = (value: number) => {
+        setInParFee(value);
+        validateField(value, setFeeError);
+    };
+
+    const handleBonusFeeChange = (value: number) => {
+        setBonusFee(value);
         validateField(value, setFeeError);
     };
 
@@ -361,27 +381,6 @@ const LeftSidebar = () => {
                                 errorMessage={beginningYearError}
                             />
                         </div>
-                        <div className="col-span-full sm:col-span-3 h-[90px]">
-                            <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
-                                Management fee (%)
-                            </label>
-                            <TextInput
-                                className="mx-auto max-w-xs mt-1"
-                                icon={RiAlarmFill}
-                                placeholder="Fee"
-                                type="number"
-                                value={fee.toString()}
-                                onChange={(e) =>
-                                    handleFeeChange(parseInt(e.target.value))
-                                }
-                                onBlur={(e) => {
-                                    calcAccuntBalance();
-                                    handleFeeChange(parseInt(e.target.value));
-                                }}
-                                error={!!feeError}
-                                errorMessage={feeError}
-                            />
-                        </div>
                     </div>
                     <div className="mt-[10px]">
                         <Divider className="my-2">
@@ -435,6 +434,27 @@ const LeftSidebar = () => {
                                 }}
                                 error={!!wdMoneyError}
                                 errorMessage={wdMoneyError}
+                            />
+                        </div>
+                        <div className="col-span-full sm:col-span-3 h-[90px]">
+                            <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
+                                Management fee (%)
+                            </label>
+                            <TextInput
+                                className="mx-auto max-w-xs mt-1"
+                                icon={RiAlarmFill}
+                                placeholder="Fee"
+                                type="number"
+                                value={spFee.toString()}
+                                onChange={(e) =>
+                                    handleSpFeeChange(parseInt(e.target.value))
+                                }
+                                onBlur={(e) => {
+                                    calcAccuntBalance();
+                                    handleSpFeeChange(parseInt(e.target.value));
+                                }}
+                                error={!!feeError}
+                                errorMessage={feeError}
                             />
                         </div>
                     </div>
@@ -516,6 +536,27 @@ const LeftSidebar = () => {
                                     }}
                                     error={!!snWdMoneyError}
                                     errorMessage={snWdMoneyError}
+                                />
+                            </div>
+                            <div className="col-span-full sm:col-span-3 h-[90px]">
+                                <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
+                                    Management fee (%)
+                                </label>
+                                <TextInput
+                                    className="mx-auto max-w-xs mt-1"
+                                    icon={RiAlarmFill}
+                                    placeholder="Fee"
+                                    type="number"
+                                    value={frFee.toString()}
+                                    onChange={(e) =>
+                                        handleFrFeeChange(parseInt(e.target.value))
+                                    }
+                                    onBlur={(e) => {
+                                        calcAccuntBalance();
+                                        handleFrFeeChange(parseInt(e.target.value));
+                                    }}
+                                    error={!!feeError}
+                                    errorMessage={feeError}
                                 />
                             </div>
                         </div>
@@ -626,6 +667,27 @@ const LeftSidebar = () => {
                                         errorMessage={inParWdMoneyError}
                                     />
                                 </div>
+                                <div className="col-span-full sm:col-span-3 h-[90px]">
+                                    <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
+                                        Management fee (%)
+                                    </label>
+                                    <TextInput
+                                        className="mx-auto max-w-xs mt-1"
+                                        icon={RiAlarmFill}
+                                        placeholder="Fee"
+                                        type="number"
+                                        value={inParFee.toString()}
+                                        onChange={(e) =>
+                                            handleInParFeeChange(parseInt(e.target.value))
+                                        }
+                                        onBlur={(e) => {
+                                            calcAccuntBalance();
+                                            handleInParFeeChange(parseInt(e.target.value));
+                                        }}
+                                        error={!!feeError}
+                                        errorMessage={feeError}
+                                    />
+                                </div>
                             </div>
                             <div className="mt-[10px]">
                                 <Divider className="my-2">
@@ -706,6 +768,27 @@ const LeftSidebar = () => {
                                         }}
                                         error={!!inParBonusWdMoneyError}
                                         errorMessage={inParBonusWdMoneyError}
+                                    />
+                                </div>
+                                <div className="col-span-full sm:col-span-3 h-[90px]">
+                                    <label className="text-sm leading-none text-gray-600 dark:text-gray-50 font-medium">
+                                        Management fee (%)
+                                    </label>
+                                    <TextInput
+                                        className="mx-auto max-w-xs mt-1"
+                                        icon={RiAlarmFill}
+                                        placeholder="Fee"
+                                        type="number"
+                                        value={bonusFee.toString()}
+                                        onChange={(e) =>
+                                            handleBonusFeeChange(parseInt(e.target.value))
+                                        }
+                                        onBlur={(e) => {
+                                            calcAccuntBalance();
+                                            handleBonusFeeChange(parseInt(e.target.value));
+                                        }}
+                                        error={!!feeError}
+                                        errorMessage={feeError}
                                     />
                                 </div>
                             </div>

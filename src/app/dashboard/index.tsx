@@ -55,12 +55,12 @@ const Dashboard = () => {
         return (
             <Layout leftSidebar={<LeftSidebar />}>
                 <div className="grid grid-cols-10">
-                    <div className="col-span-7 mr-4">
+                    <div className="col-span-10">
                         <LineChartHero />
                     </div>
-                    <div className="col-span-3">
+                    {/* <div className="col-span-3">
                         <BarChartHero />
-                    </div>
+                    </div> */}
                 </div>
                 <div className="mt-4">
                     <AccountBalanceTable />
