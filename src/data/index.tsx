@@ -1,7 +1,7 @@
 export const DEFAULT_INPUTS: any = {
     investment: 1000000,
     clientAge: 65,
-    years: 25,
+    years: 26,
     beginning_year: 1999,
     sp_fee: 0,
     fr_fee: 0,
